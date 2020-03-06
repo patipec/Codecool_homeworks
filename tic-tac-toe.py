@@ -67,7 +67,7 @@ def get_move(board, player):
 player =1
 
 
-def change_player():
+def change_player(player):
     while player == 1:
         mark = "X"
         player == 2
@@ -96,22 +96,22 @@ def is_full(board):
     return False
 
 
-def print_board():
-    mark = "."
-    b0 = ("  1   2   3  ")
-    b1 = f"A {mark} | {mark} | {mark}"
-    b2 = " ---+---+---"
-    b3 = f"B {mark} | {mark} | {mark}"
-    b4 = " ---+---+---"
-    b5 = f"B {mark} | {mark} | {mark}"
+def print_board(board, player):
+    mark = player
+    for i in len(board[i]):
+        for j in len(board[i][j]):
+            if board[i][j] == 0:
+                board[i][j] = "."
+            else:
+                board[i][j] = mark
 
-    # just to have it clear as lines:
-    print(b0) 
-    print(b1)
-    print(b2)
-    print(b3)
-    print(b4)
-    print(b5)
+    print = ("  1   2   3  ")
+    print = f"A {board[0][0]} | {board[0][1]} | {board[0][2]}"
+    print = " ---+---+---"
+    print = f"B {board[1][0]} | {board[1][1]} | {board[1][2]}"
+    print = " ---+---+---"
+    print = f"B {board[2][0]}| {board[2][1]} | {board[2][2]}"
+
 print_board()
     
 
