@@ -26,6 +26,8 @@ def init_board():
              [0, 0, 0]]
     return board
 
+board = init_board() # cos to da?
+
 
 def get_move(board, player):
     # give row
@@ -83,9 +85,6 @@ def mark(board, player, row, col):
         player = "O"
     
 
-
-
-
 def has_won(board, player):
     """Returns True if player has won the game."""
     return False
@@ -97,13 +96,9 @@ def is_full(board):
 
 
 def print_board(board, player):
-    mark = player
-    for i in len(board[i]):
-        for j in len(board[i][j]):
-            if board[i][j] == 0:
-                board[i][j] = "."
-            else:
-                board[i][j] = mark
+    for i,j in board[i][j]:
+        if board[i][j] == 0:
+            board[i][j] = "."
 
     print = ("  1   2   3  ")
     print = f"A {board[0][0]} | {board[0][1]} | {board[0][2]}"
