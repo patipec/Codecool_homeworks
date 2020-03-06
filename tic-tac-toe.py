@@ -26,8 +26,6 @@ def init_board():
              [0, 0, 0]]
     return board
 
-board = init_board() # cos to da?
-
 
 def get_move(board, player):
     # give row
@@ -79,10 +77,16 @@ def change_player(player):
 
 
 def mark(board, player, row, col):
+    print("New board", board)
     if player == 1:
-        player = "X"
-    if player == 2:
-        player = "O"
+        board[row][col] = 'X'
+        # player = 2
+    elif player == 2:
+        board[row][col] = 'O'
+        # player = 1
+    # print(board)
+    print("After player turn board looks like: ", player)
+    return board, player
     
 
 def has_won(board, player):
@@ -95,19 +99,25 @@ def is_full(board):
     return False
 
 
-def print_board(board, player):
-    for i,j in board[i][j]:
-        if board[i][j] == 0:
-            board[i][j] = "."
+def print_board(board, player=None):
+    
+    temp_board = []
+    print(temp_board)
+    for i in range(0,len(board)):
+        for j in range(0,len(board)):
+            if board[i][j] == 0:
+                temp_board.append('.')
+            else:
+                temp_board.append(board[i][j])
+    print("   1   2   3")
+    print("A  {0} | {1} | {2} \n  ---+---+---\nB  {3} | {4} | {5} \n  ---+---+---\nC  {6} | {7} | {8} \n ".format(temp_board[0], temp_board[1], temp_board[2], temp_board[3], temp_board[4], temp_board[5],temp_board[6], temp_board[7], temp_board[8]))
+    pass
 
-    print = ("  1   2   3  ")
-    print = f"A {board[0][0]} | {board[0][1]} | {board[0][2]}"
-    print = " ---+---+---"
-    print = f"B {board[1][0]} | {board[1][1]} | {board[1][2]}"
-    print = " ---+---+---"
-    print = f"B {board[2][0]}| {board[2][1]} | {board[2][2]}"
 
-print_board()
+board = [[0,0,0],[0,0,0],[0,0,0]]
+
+print_board(board)
+
     
 
 def print_result(winner):
